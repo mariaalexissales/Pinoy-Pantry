@@ -1,0 +1,59 @@
+/*----------*/
+/*--ESTRAL--*/
+/*----------*/
+
+module Base
+{
+	model PP_PatiSauce
+	{
+		mesh = WorldItems/PP_PatiSauce,
+		texture = WorldItems/PP_PatiSauce,
+		scale = 0.04,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_SinigangSeasoning
+	{
+		mesh = WorldItems/PP_SinigangSeasoning,
+		texture = WorldItems/PP_SinigangSeasoning,
+		scale = 0.042,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_BagoongShrimp
+	{
+		mesh = WorldItems/PP_BagoongShrimp,
+		texture = WorldItems/PP_BagoongShrimp,
+		scale = 0.05,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_PanDeSal
+	{
+		mesh = WorldItems/PP_PanDeSal,
+		texture = WorldItems/PP_PanDeSal,
+		scale = 0.0007,
+
+		attachment Bip01_Prop2
+		{
+			offset = -0.0019 0.0496 -0.0125,
+			rotate = -17.8243 46.644 32.5015,
+			scale = 0.75,
+		}
+	}
+}

@@ -1,0 +1,76 @@
+/*----------*/
+/*--ESTRAL--*/
+/*----------*/
+
+module PinoyPantry
+{
+	imports
+	{
+		Base
+	}
+
+	craftRecipe MakePanDeSalDough
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		NeedToBeLearn		= true,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:10,
+		AutoLearnAny		= Cooking:5,
+		inputs
+		{
+			item 1 tags[base:mixingutensil] mode:keep flags[MayDegradeVeryLight],
+			item 1 [Base.Bowl;Base.ClayBowl] mode:keep,
+			item 8 tags[base:flour],
+			item 2 [Base.Sugar;Base.SugarBrown],
+			item 1 [Base.Salt;Base.SeasoningSalt],
+			item 1 [Base.Yeast],
+			-fluid 1.0 [Water],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PanDeSalDough,
+		}
+	}
+
+	/* Pot of water + seasoning packet -> sinigang broth.
+	   Follows vanilla's PlaceRiceInCookingPot2. */
+	craftRecipe MakeSinigangBase
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:5,
+		inputs
+		{
+			item 1 [Base.Pot] mode:destroy flags[InheritCondition;ItemCount],
+			-fluid 1.5 categories[Water] mode:mixture,
+			item 1 [PinoyPantry.SinigangSeasoning],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PotOfSinigangBase,
+		}
+	}
+}
+
+module Base
+{
+	/* Declared in Base with fully-qualified refs, mirroring how
+	   Vanilla Foods Expanded registers its custom evolved recipes.
+	   Template = Stew, not Soup: vanilla's Soup template contains no
+	   red meat at all (Beef/Steak declare Stew but not Soup), while
+	   Stew carries the same vegetables and herbs plus all the meat. */
+	evolvedrecipe PP_Sinigang
+	{
+		BaseItem		= PinoyPantry.PotOfSinigangBase,
+		ResultItem		= PinoyPantry.PotOfSinigang,
+		Template		= Stew,
+		Name			= Prepare Sinigang,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+}

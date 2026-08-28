@@ -1,0 +1,205 @@
+/*----------*/
+/*--ESTRAL--*/
+/*----------*/
+
+module PinoyPantry
+{
+	imports
+	{
+		Base
+	}
+
+	/****************************  CONDIMENTS  ****************************/
+
+	item PatiSauce
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Pati Sauce,
+		Icon			= PatiSauce,
+		Weight			= 0.2,
+		EatType			= GlugFood,
+		Packaged		= true,
+		Spice			= true,
+		CantBeFrozen		= true,
+		FoodType		= NoExplicit,
+		HungerChange		= -20.0,
+		UnhappyChange		= 30,
+		Calories		= 320.0,
+		Carbohydrates		= 60.0,
+		Lipids			= 0.0,
+		Proteins		= 4.0,
+		EvolvedRecipe		= Rice:2;Stir fry:2;Soup:2;Stew:2;Sandwich:2;Burger:2,
+		CustomContextMenu	= Drink,
+		CustomEatSound		= DrinkingFromBottleGlass,
+		StaticModel		= PP_PatiSauce,
+		WorldStaticModel	= PP_PatiSauce,
+	}
+
+	item SinigangSeasoning
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Sinigang Seasoning,
+		Icon			= SinigangSeasoning,
+		Weight			= 0.2,
+		EatType			= GlugFood,
+		Packaged		= true,
+		Spice			= true,
+		CantBeFrozen		= true,
+		FoodType		= NoExplicit,
+		HungerChange		= -10.0,
+		UnhappyChange		= 30,
+		Calories		= 180.0,
+		Carbohydrates		= 40.0,
+		Lipids			= 0.0,
+		Proteins		= 2.0,
+		EvolvedRecipe		= Rice:2;Stir fry:2;Soup:2;Stew:2;Salad:2;Pasta:2,
+		StaticModel		= PP_SinigangSeasoning,
+		WorldStaticModel	= PP_SinigangSeasoning,
+	}
+
+	item BagoongShrimp
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Bagoong Alamang,
+		Icon			= BagoongShrimp,
+		Weight			= 0.5,
+		Packaged		= true,
+		Spice			= true,
+		CantBeFrozen		= true,
+		FoodType		= NoExplicit,
+		DaysFresh		= 60,
+		DaysTotallyRotten	= 180,
+		HungerChange		= -15.0,
+		UnhappyChange		= 20,
+		ThirstChange		= 5.0,
+		Calories		= 220.0,
+		Carbohydrates		= 12.0,
+		Lipids			= 4.0,
+		Proteins		= 34.0,
+		EvolvedRecipe		= Rice:5;Stir fry:5;Soup:5;Stew:5,
+		StaticModel		= PP_BagoongShrimp,
+		WorldStaticModel	= PP_BagoongShrimp,
+	}
+
+	/*****************************  SINIGANG  *****************************/
+
+	/* Pot of water + Sinigang Seasoning. This is the evolved-recipe
+	   container the player adds vegetables, meat and spices to. */
+	item PotOfSinigangBase
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Pot of Sinigang Broth,
+		Icon			= Pot_Water,
+		Weight			= 3.0,
+		EatType			= Pot,
+		PourType		= Pot,
+		IsCookable		= true,
+		GoodHot			= true,
+		BadInMicrowave		= true,
+		ReplaceOnUse		= Base.Pot,
+		MinutesToCook		= 20,
+		MinutesToBurn		= 50,
+		DaysFresh		= 3,
+		DaysTotallyRotten	= 6,
+		HungerChange		= 0.0,
+		Calories		= 0.0,
+		Carbohydrates		= 0.0,
+		Lipids			= 0.0,
+		Proteins		= 0.0,
+		UnhappyChange		= 20,
+		CookingSound		= BoilingFood,
+		EvolvedRecipeName	= Sinigang,
+		Tags			= base:hasmetal,
+		StaticModel		= CookingPotRice_Ground,
+		WorldStaticModel	= CookingPotRice_Ground,
+		SoundMap		= DumpContents EmptyPot,
+	}
+
+	/* The finished dish. Nutrition accumulates from ingredients at runtime. */
+	item PotOfSinigang
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Pot of Sinigang,
+		Icon			= PotFull,
+		Weight			= 3.0,
+		EatType			= Pot,
+		PourType		= Pot,
+		IsCookable		= true,
+		GoodHot			= true,
+		BadInMicrowave		= true,
+		ReplaceOnUse		= Base.Pot,
+		MinutesToCook		= 50,
+		MinutesToBurn		= 100,
+		DaysFresh		= 3,
+		DaysTotallyRotten	= 5,
+		HungerChange		= 0.0,
+		Calories		= 0.0,
+		Carbohydrates		= 0.0,
+		Lipids			= 0.0,
+		Proteins		= 0.0,
+		UnhappyChange		= -20,
+		CookingSound		= BoilingFood,
+		CustomEatSound		= EatingSoup,
+		Tags			= base:hasmetal,
+		StaticModel		= CookingPotSoup_Ground,
+		WorldStaticModel	= CookingPotSoup_Ground,
+		SoundMap		= DumpContents EmptyPot,
+	}
+
+	/******************************  BAKING  ******************************/
+
+	item PanDeSalDough
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Pan de Sal Dough,
+		Icon			= PanDeSal,
+		Weight			= 0.3,
+		EatType			= 2handforced,
+		DangerousUncooked	= true,
+		IsCookable		= true,
+		ReplaceOnCooked		= PinoyPantry.PanDeSal,
+		MinutesToCook		= 20,
+		MinutesToBurn		= 50,
+		DaysFresh		= 2,
+		DaysTotallyRotten	= 4,
+		HungerChange		= -14.0,
+		ThirstChange		= 15.0,
+		UnhappyChange		= 20,
+		Calories		= 480.0,
+		Carbohydrates		= 92.0,
+		Lipids			= 5.0,
+		Proteins		= 14.0,
+		FishingLure		= true,
+		StaticModel		= BreadDough,
+		WorldStaticModel	= BreadDough,
+	}
+
+	item PanDeSal
+	{
+		DisplayCategory		= Food,
+		ItemType		= base:food,
+		DisplayName		= Pan de Sal,
+		Icon			= PanDeSal,
+		Weight			= 0.25,
+		FoodType		= Bread,
+		DaysFresh		= 2,
+		DaysTotallyRotten	= 6,
+		HungerChange		= -20.0,
+		UnhappyChange		= -8,
+		Calories		= 380.0,
+		Carbohydrates		= 72.0,
+		Lipids			= 4.5,
+		Proteins		= 11.0,
+		FishingLure		= true,
+		EvolvedRecipe		= Sandwich:5;Soup:5;Stew:5,
+		EvolvedRecipeName	= Pan de Sal,
+		StaticModel		= PP_PanDeSal,
+		WorldStaticModel	= PP_PanDeSal,
+	}
+}
