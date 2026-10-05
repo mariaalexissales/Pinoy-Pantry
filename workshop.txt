@@ -1,6 +1,8 @@
 version=1
 id=3791631305
 title=Pinoy Pantry
+description=[img]https://i.imgur.com/lja52Fs.gif[/img]
+description=
 description=[h1]Pinoy Pantry[/h1]
 description=[h2]Kababayans! Ang padala ay dumating na! 📦[/h2]
 description=
