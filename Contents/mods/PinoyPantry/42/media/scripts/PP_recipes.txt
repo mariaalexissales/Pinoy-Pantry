@@ -54,6 +54,153 @@ module PinoyPantry
 			item 1 PinoyPantry.PotOfSinigangBase,
 		}
 	}
+
+	/* Cheeky Titas pot chains - clones of MakeSinigangBase, one per flavor. */
+	craftRecipe MakeTinolaBase
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:5,
+		inputs
+		{
+			item 1 [Base.Pot] mode:destroy flags[InheritCondition;ItemCount],
+			-fluid 1.5 categories[Water] mode:mixture,
+			item 1 [PinoyPantry.CheekyTitasTinolaMix],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PotOfTinolaBase,
+		}
+	}
+
+	craftRecipe MakeBulaloBase
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:5,
+		inputs
+		{
+			item 1 [Base.Pot] mode:destroy flags[InheritCondition;ItemCount],
+			-fluid 1.5 categories[Water] mode:mixture,
+			item 1 [PinoyPantry.CheekyTitasBulaloMix],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PotOfBulaloBase,
+		}
+	}
+
+	craftRecipe MakeNilagaBase
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:5,
+		inputs
+		{
+			item 1 [Base.Pot] mode:destroy flags[InheritCondition;ItemCount],
+			-fluid 1.5 categories[Water] mode:mixture,
+			item 1 [PinoyPantry.CheekyTitasNilagaMix],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PotOfNilagaBase,
+		}
+	}
+
+	craftRecipe MakeKareKareBase
+	{
+		timedAction		= MixingBowl,
+		time			= 50,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:5,
+		inputs
+		{
+			item 1 [Base.Pot] mode:destroy flags[InheritCondition;ItemCount],
+			-fluid 1.5 categories[Water] mode:mixture,
+			item 1 [PinoyPantry.CheekyTitasKareKareMix],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.PotOfKareKareBase,
+		}
+	}
+
+	/* Mam (Spam parody). Follows vanilla's OpenCannedFood2 shape exactly:
+	   CannedFood items auto-require a can opener in the player's
+	   inventory, so no explicit canopener input is listed here either. */
+	craftRecipe OpenMamCans
+	{
+		timedAction		= OpenTinCan,
+		time			= 10,
+		OnCreate		= RecipeCodeOnCreate.openAndEat,
+		Tags			= InHandCraft;CanBeDoneInDark,
+		category		= Cooking,
+		inputs
+		{
+			item 1 [PinoyPantry.MamClassic;PinoyPantry.MamGarlic;PinoyPantry.MamHotSpicy] mappers[mamSorts] flags[Prop2;DontPutBack],
+		}
+		outputs
+		{
+			item 1 mapper:mamSorts,
+		}
+		itemMapper mamSorts
+		{
+			PinoyPantry.MamClassicOpen = PinoyPantry.MamClassic,
+			PinoyPantry.MamGarlicOpen = PinoyPantry.MamGarlic,
+			PinoyPantry.MamHotSpicyOpen = PinoyPantry.MamHotSpicy,
+		}
+	}
+
+	/* Turon: assemble raw, fry via IsCookable/ReplaceOnCooked on the item itself. */
+	craftRecipe MakeTuronRaw
+	{
+		timedAction		= MixingBowl,
+		time			= 40,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:8,
+		inputs
+		{
+			item 1 [Base.Banana] mode:destroy flags[InheritCondition;ItemCount],
+			item 3 tags[base:flour],
+			item 1 [Base.Sugar;Base.SugarBrown],
+			-fluid 0.1 categories[Water] mode:mixture,
+		}
+		outputs
+		{
+			item 1 PinoyPantry.TuronRaw,
+		}
+	}
+
+	/* Halo-halo: cold assembly, no heat step, so a fixed craftRecipe
+	   rather than an evolvedrecipe. */
+	craftRecipe MakeHaloHalo
+	{
+		timedAction		= MixingBowl,
+		time			= 60,
+		category		= Cooking,
+		Tags			= AnySurfaceCraft;Cooking,
+		xpAward			= Cooking:6,
+		inputs
+		{
+			item 1 [Base.DrinkingGlass] mode:destroy flags[InheritCondition;ItemCount],
+			item 1 [PinoyPantry.ShavedIce] mode:destroy flags[ItemCount],
+			item 1 [Base.CannedMilkOpen] mode:destroy flags[ItemCount],
+			item 1 [Base.Sugar;Base.SugarBrown] mode:destroy,
+			item 1 [PinoyPantry.UbeHalayaJar;PinoyPantry.SweetBeansJar] mode:destroy flags[ItemCount],
+		}
+		outputs
+		{
+			item 1 PinoyPantry.HaloHalo,
+		}
+	}
 }
 
 module Base
@@ -69,6 +216,64 @@ module Base
 		ResultItem		= PinoyPantry.PotOfSinigang,
 		Template		= Stew,
 		Name			= Prepare Sinigang,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+
+	evolvedrecipe PP_Tinola
+	{
+		BaseItem		= PinoyPantry.PotOfTinolaBase,
+		ResultItem		= PinoyPantry.PotOfTinola,
+		Template		= Soup,
+		Name			= Prepare Tinola,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+
+	evolvedrecipe PP_Bulalo
+	{
+		BaseItem		= PinoyPantry.PotOfBulaloBase,
+		ResultItem		= PinoyPantry.PotOfBulalo,
+		Template		= Stew,
+		Name			= Prepare Bulalo,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+
+	evolvedrecipe PP_Nilaga
+	{
+		BaseItem		= PinoyPantry.PotOfNilagaBase,
+		ResultItem		= PinoyPantry.PotOfNilaga,
+		Template		= Stew,
+		Name			= Prepare Nilaga,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+
+	evolvedrecipe PP_KareKare
+	{
+		BaseItem		= PinoyPantry.PotOfKareKareBase,
+		ResultItem		= PinoyPantry.PotOfKareKare,
+		Template		= Stew,
+		Name			= Prepare Kare-Kare,
+		MaxItems		= 6,
+		Cookable		= true,
+		CanAddSpicesEmpty	= true,
+	}
+
+	/* Sisig: uses the empty frying pan itself as the BaseItem, exactly
+	   like vanilla's own "Stir fry" evolvedrecipe - no separate pan-base
+	   item needed. Accepts raw pork or any Mam flavor as the protein. */
+	evolvedrecipe PP_Sisig
+	{
+		BaseItem		= Base.Pan,
+		ResultItem		= PinoyPantry.Sisig,
+		Template		= Stir fry,
+		Name			= Prepare Sisig,
 		MaxItems		= 6,
 		Cookable		= true,
 		CanAddSpicesEmpty	= true,

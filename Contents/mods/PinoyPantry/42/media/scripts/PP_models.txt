@@ -56,4 +56,134 @@ module Base
 			scale = 0.75,
 		}
 	}
+
+	model PP_Turon
+	{
+		mesh = WorldItems/PP_Turon,
+		texture = WorldItems/PP_Turon,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_UbeHalayaJar
+	{
+		mesh = WorldItems/PP_UbeHalayaJar,
+		texture = WorldItems/PP_UbeHalayaJar,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_SweetBeansJar
+	{
+		mesh = WorldItems/PP_SweetBeansJar,
+		texture = WorldItems/PP_SweetBeansJar,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_ShavedIce
+	{
+		mesh = WorldItems/PP_ShavedIce,
+		texture = WorldItems/PP_ShavedIce,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_HaloHalo
+	{
+		mesh = WorldItems/PP_HaloHalo,
+		texture = WorldItems/PP_HaloHalo,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_LuckyMePancitCantonDryOriginal
+	{
+		mesh = WorldItems/PP_LuckyMePancitCantonDry,
+		texture = WorldItems/PP_LuckyMePancitCantonDryOriginal,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_LuckyMePancitCantonDryChiliMansi
+	{
+		mesh = WorldItems/PP_LuckyMePancitCantonDry,
+		texture = WorldItems/PP_LuckyMePancitCantonDryChiliMansi,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_LuckyMePancitCantonDryKalamansi
+	{
+		mesh = WorldItems/PP_LuckyMePancitCantonDry,
+		texture = WorldItems/PP_LuckyMePancitCantonDryKalamansi,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_LuckyMePancitCantonDrySweetStyle
+	{
+		mesh = WorldItems/PP_LuckyMePancitCantonDry,
+		texture = WorldItems/PP_LuckyMePancitCantonDrySweetStyle,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
+
+	model PP_LuckyMePancitCantonCooked
+	{
+		mesh = WorldItems/PP_LuckyMePancitCantonCooked,
+		texture = WorldItems/PP_LuckyMePancitCantonCooked,
+		scale = 0.045,
+
+		attachment Bip01_Prop2
+		{
+			offset = 0.0 0.0 0.0,
+			rotate = 0.0 0.0 0.0,
+		}
+	}
 }

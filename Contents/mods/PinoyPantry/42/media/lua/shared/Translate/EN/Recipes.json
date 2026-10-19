@@ -1,3 +1,10 @@
 {
-    "MakeSinigangBase": "Make Sinigang"
+    "MakeSinigangBase": "Make Sinigang",
+    "MakeTinolaBase": "Make Tinola",
+    "MakeBulaloBase": "Make Bulalo",
+    "MakeNilagaBase": "Make Nilaga",
+    "MakeKareKareBase": "Make Kare-Kare",
+    "OpenMamCans": "Open Can",
+    "MakeTuronRaw": "Make Turon",
+    "MakeHaloHalo": "Make Halo-halo"
 }
